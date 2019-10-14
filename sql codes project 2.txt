@@ -1,0 +1,78 @@
+''' MySQL codes project 2 ''' 
+
+# safety over years per neighborhood  (1-10)
+    SELECT years, areacode15, score
+    FROM project2
+    WHERE variable = 'VBUURTVEILIG_R' and areacode15 in ('A', 'E', 'K', 'M', 'N')
+    group by years, score, areacode15
+    order by areacode15, years asc 
+
+# actual nuisance crime over years per neighborhood (1-10) 
+    SELECT years, areacode15, score
+    FROM project2
+    WHERE variable = 'VCRIMINALITEIT_R' and areacode15 in ('A', 'E', 'K', 'M', 'N')
+    group by years, score, areacode15
+    order by areacode15, years asc 
+
+# neighborhood safety over years (1-10)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VBUURTVEILIG_R' 
+        group by years
+        order by years 
+
+# safety feeling during the day over years (1-10)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VVEILIGDAG_R' 
+        group by years
+        order by years
+
+# safety feeling during the evening over years (1-10)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VVEILIGAVOND_R' 
+        group by years
+        order by years  
+
+# actual nuisance crime over years (1-10) 
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VCRIMINALITEIT_R' 
+        group by years
+        order by years 
+
+# satistacion with own neighborhood over years (1-10)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'LBUURT_R'
+        group by years
+        order by years 
+
+# feeling unsafe somethimes over years (%)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VVEILIGVOELENALG_P'
+        group by years
+        order by years 
+
+# feeling unsafe often over years (%)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VVAAKVEILIGVOELENALG_P'
+        group by years
+        order by years 
+
+# feeling unsafe somethimes within own neighborhood over years (%)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VVEILIGVOELEN_P'
+        group by years
+        order by years 
+
+# feeling unsafe often within own neighborhood over years (%)
+        SELECT years, avg(score)
+        FROM project2
+        WHERE variable = 'VVAAKVEILIGVOELEN_P'
+        group by years
+        order by years 
