@@ -1,5 +1,9 @@
 ''' MySQL codes project 2 ''' 
 
+'''
+L.S. Looks good!
+'''
+
 # safety over years per neighborhood  (1-10)
     SELECT years, areacode15, score
     FROM project2
